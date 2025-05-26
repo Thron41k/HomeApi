@@ -17,32 +17,6 @@ public class RoomsController(IRoomRepository repository, IMapper mapper) : Contr
 {
     //TODO: Задание - добавить метод на получение всех существующих комнат
 
-    /// <summary>
-    /// Обновление существующей комнаты (полная перезапись свойств)
-    /// </summary>
-    [HttpPut]
-    [Route("{id:guid}")]
-    public async Task<IActionResult> Update(
-        [FromRoute] Guid id,
-        [FromBody] UpdateRoomRequest request)
-    {
-        var existingRoom = await repository.GetRoomById(id);
-        if (existingRoom == null)
-            return NotFound($"Ошибка: Комната {id} не найдена.");
-
-        // Проверяем, не пытаемся ли переименовать в уже существующую комнату
-        if (existingRoom.Name != request.Name)
-        {
-            var roomWithNewName = await repository.GetRoomByName(request.Name);
-            if (roomWithNewName != null)
-                return Conflict($"Ошибка: Комната с именем {request.Name} уже существует.");
-        }
-
-        mapper.Map(request, existingRoom);
-        await repository.UpdateRoom(existingRoom);
-
-        return Ok($"Комната {id} успешно обновлена. Новое имя: {existingRoom.Name}");
-    }
 
     /// <summary>
     /// Добавление комнаты
