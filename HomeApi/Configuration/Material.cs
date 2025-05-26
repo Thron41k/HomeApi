@@ -1,12 +1,11 @@
-﻿namespace HomeApi.Configuration
+﻿namespace HomeApi.Configuration;
+
+/// <summary>
+/// Материал изготовления
+/// </summary>
+public enum Material
 {
-    /// <summary>
-    /// Материал изготовления
-    /// </summary>
-    public enum Material
-    {
-        Stone,
-        Wood,
-        Brick
-    }
+    Stone,
+    Wood,
+    Brick
 }

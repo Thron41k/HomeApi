@@ -1,13 +1,12 @@
-﻿namespace HomeApi.Configuration
+﻿namespace HomeApi.Configuration;
+
+/// <summary>
+/// Тип отопления
+/// </summary>
+public enum Heating
 {
-    /// <summary>
-    /// Тип отопления
-    /// </summary>
-    public enum Heating
-    {
-        None,
-        Oven,
-        Gas,
-        Electric,
-    }
+    None,
+    Oven,
+    Gas,
+    Electric,
 }
