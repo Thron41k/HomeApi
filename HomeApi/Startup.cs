@@ -40,7 +40,8 @@ public class Startup
             
         // Подключаем валидацию
         services.AddFluentValidation( fv =>  fv.RegisterValidatorsFromAssemblyContaining<AddDeviceRequestValidator>() );
-            
+        services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UpdateRoomRequestValidator>());
+
         // Добавляем новый сервис
         services.Configure<HomeOptions>(Configuration);
             

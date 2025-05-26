@@ -10,5 +10,7 @@ namespace HomeApi.Data.Repos;
 public interface IRoomRepository
 {
     Task<Room> GetRoomByName(string name);
+    Task<Room> GetRoomById(Guid id);
     Task AddRoom(Room room);
+    Task UpdateRoom(Room room);
 }

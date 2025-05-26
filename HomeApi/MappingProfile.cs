@@ -28,5 +28,6 @@ public class MappingProfile : Profile
                 opt => opt.MapFrom(r => r.RoomLocation));
         CreateMap<AddRoomRequest, Room>();
         CreateMap<Device, DeviceView>();
+        CreateMap<UpdateRoomRequest, Room>();
     }
 }
